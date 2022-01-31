@@ -6,111 +6,156 @@
 
 var prompts = [
 {
-	prompt: 'I am on the mechanical subteam',
-    mkt_weight: 0,
+	prompt: 'I like working with my hands.',
+    mkt_weight: -2,
     cad_weight: 1,
     mech_weight: 2,
-    elec_weight: 1,
-    prog_weight: 0,
+    elec_weight: 2,
+    prog_weight: -1,
 	class: 'group0'
 },
 {
-	prompt: 'I am on the marketing subteam',
+	prompt: 'I like solving puzzles.',
+    mkt_weight: -1,
+    cad_weight: 1,
+    mech_weight: 1,
+    elec_weight: 1,
+    prog_weight: 2,
+	class: 'group1'
+},
+{
+	prompt: 'I am a good writer.',
     mkt_weight: 2,
     cad_weight: 0,
     mech_weight: 0,
     elec_weight: 0,
     prog_weight: 0,
-	class: 'group1'
-},
-{
-	prompt: 'I am on the CAD subteam',
-    mkt_weight: 0,
-    cad_weight: 2,
-    mech_weight: 1,
-    elec_weight: 0,
-    prog_weight: 0,
 	class: 'group2'
 },
 {
-	prompt: 'I am on the programming subteam',
-    mkt_weight: 0,
-    cad_weight: 0,
-    mech_weight: 0,
-    elec_weight: 1,
+	prompt: 'I am creative.',
+    mkt_weight: 2,
+    cad_weight: 2,
+    mech_weight: 1,
+    elec_weight: 0,
     prog_weight: 2,
 	class: 'group3'
 },
 {
-	prompt: 'I am on the electrical subteam',
-    mkt_weight: 0,
+	prompt: 'I have trouble talking to others.',
+    mkt_weight: -2,
     cad_weight: 0,
-    mech_weight: 1,
-    elec_weight: 2,
-    prog_weight: 1,
+    mech_weight: -1,
+    elec_weight: 1,
+    prog_weight: 2,
 	class: 'group4'
 },
 {
-	prompt: 'Dummy prompt',
-    mkt_weight: 0,
-    cad_weight: 0,
+	prompt: 'My pickup lines tend to be physics-related.',
+    mkt_weight: -2,
+    cad_weight: 2,
     mech_weight: 0,
     elec_weight: 0,
-    prog_weight: 0,
+    prog_weight: 1,
 	class: 'group5'
 },
 {
-	prompt: 'Dummy prompt',
+	prompt: 'Soup',
     mkt_weight: 0,
-    cad_weight: 0,
+    cad_weight: 1,
     mech_weight: 0,
     elec_weight: 0,
     prog_weight: 0,
 	class: 'group6'
 },
 {
-	prompt: 'Dummy prompt',
+	prompt: 'I am a fan of rubber ducks.',
     mkt_weight: 0,
     cad_weight: 0,
     mech_weight: 0,
     elec_weight: 0,
-    prog_weight: 0,
+    prog_weight: 2,
 	class: 'group7'
 },
 {
-	prompt: 'Dummy prompt',
+	prompt: 'I would cuddle with the bros.',
     mkt_weight: 0,
-    cad_weight: 0,
-    mech_weight: 0,
+    cad_weight: 1,
+    mech_weight: 1,
     elec_weight: 0,
     prog_weight: 0,
 	class: 'group8'
 },
 {
-	prompt: 'Dummy prompt',
+	prompt: 'I have climbed onto the top of a door before.',
     mkt_weight: 0,
-    cad_weight: 0,
+    cad_weight: 2,
     mech_weight: 0,
     elec_weight: 0,
-    prog_weight: 0,
+    prog_weight: 1,
 	class: 'group9'
 },
 {
-	prompt: 'Dummy prompt',
+	prompt: 'I write love letters on Chipotle napkins.',
     mkt_weight: 0,
-    cad_weight: 0,
+    cad_weight: 1,
     mech_weight: 0,
     elec_weight: 0,
     prog_weight: 0,
 	class: 'group10'
 },
 {
-	prompt: 'Dummy prompt',
+	prompt: 'I am likely to go to a rave.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 1,
+    elec_weight: 2,
+    prog_weight: -1,
+	class: 'group11'
+},
+{
+	prompt: 'I decorate the tools I work with.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 2,
+    prog_weight: 1,
+	class: 'group12'
+},
+{
+	prompt: 'I am capable of communicating telepathically.',
+    mkt_weight: 0,
+    cad_weight: 1,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group13'
+},
+{
+	prompt: 'I eat onions like they\'re apples.',
+    mkt_weight: -1,
+    cad_weight: 2,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 1,
+	class: 'group14'
+},
+{
+	prompt: 'I am a communist.',
     mkt_weight: 0,
     cad_weight: 0,
     mech_weight: 0,
     elec_weight: 0,
-    prog_weight: 0,
+    prog_weight: 2,
+	class: 'group15'
+},
+{
+	prompt: 'I went through an anarchist phase.',
+    mkt_weight: 2,
+    cad_weight: -1,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 1,
 	class: 'group11'
 }
 
