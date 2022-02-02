@@ -2,6 +2,7 @@
 // If agreeing with a given prompt is indicative of a certain subteam, the prompt's weight for that subteam will be positive.
 // If disagreeing with a given prompt is indicative of a certain subteam, the prompt's weight for that subteam will be negative.
 
+// 14 per page
 var prompts = [
 {
 	prompt: 'I like working with my hands.',
@@ -369,49 +370,54 @@ $('#submit-btn').click(function () {
                                                             <br><b>You are marketing!</b><br><br>\
                                                             Marketing is 45\% vsco girl. Don\'t @ me.\
                                                             <br><br>\
-                                                            Blah blah blah\
+                                                            People on marketing are generally creative, detail-oriented, and good at public speaking.\
                                                             <br><br>\
-                                                            Blah blah blah";
+                                                            Marketing is the MOM of the friend group and holds everything together. She's popular and has a strong social \
+                                                            media presence, but is lacking in close, genuine connections.";
             break;
         case 'cad':
             document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/cad.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
                                                             <br><b>You are CAD!</b><br><br>\
                                                             CAD is such a silly goose! 🤪\
                                                             <br><br>\
-                                                            Blah blah blah\
+                                                            People on CAD are generally laid back, creative, and great with math and physics.\
                                                             <br><br>\
-                                                            Blah blah blah";
+                                                            CAD is a know-it-all who always answers questions in class, but he's not uptight by any means; he's probably \
+                                                            the goofiest person you'll ever meet, and he always seems to have an injury from his last stunt.";
             break;
         case 'mech':
             document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/mechanical.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
                                                             <br><b>You are mechanical!</b><br><br>\
                                                             What I mean is you're a normie.\
                                                             <br><br>\
-                                                            Blah blah blah\
+                                                            People on mechanical are generally hands-on, innovative, and willing to get their hands dirty.\
                                                             <br><br>\
-                                                            Blah blah blah";
+                                                            Mechanical is super friendly and easy to talk to. He'll often show up late and leave his workspace a mess, \
+                                                            but he's also one of the people who stays the latest at the shop.";
             break;
         case 'elec':
             document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/electrical.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
                                                             <br><b>You are electrical!</b><br><br>\
                                                             Electrical is nerdy but normal enough that people forget.\
                                                             <br><br>\
-                                                            Blah blah blah\
+                                                            People on electrical are generally focused, flexible, and good at working with their hands.\
                                                             <br><br>\
-                                                            Blah blah blah";
+                                                            Electrical is mature and put-together, but on the inside she is, at times, rather disorganized. She can be shy and \
+                                                            insecure, but her natural leadership qualities make up for this.";
             break;
         case 'prog':
             document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/programming.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
                                                             <br><b>You are programming!</b><br><br>\
                                                             You're a loser, is what I'm saying.\
                                                             <br><br>\
-                                                            Blah blah blah\
+                                                            People on programming are generally meticulous, open-minded, and great at problem solving.\
                                                             <br><br>\
-                                                            Blah blah blah";
+                                                            Programming is extremely reserved and socially awkward, but once you get to know him, he's loud and wacky. \
+                                                            He's also incredibly smart, having been a techie from a young age.";
             break;
         default:
             document.getElementById('results').innerHTML = "<b>Something went wrong</b><br><br>\
-		Try again?";
+		                                                  Try again?";
     }
 	
 	// Hide the quiz after they submit their results
