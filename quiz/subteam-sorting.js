@@ -1,8 +1,6 @@
-// A personality quiz
-
-// This is an array of objects that stores the personality trait that is prompted to the user and the weight for each prompt. 
-// If a personality trait is considered more introverted, it will have a negative weight.
-// If a personlity trait is considered more extroverted, it will have a positive weight.
+// This is an array of objects that stores prompts given to the user and their weights.
+// If agreeing with a given prompt is indicative of a certain subteam, the prompt's weight for that subteam will be positive.
+// If disagreeing with a given prompt is indicative of a certain subteam, the prompt's weight for that subteam will be negative.
 
 var prompts = [
 {
@@ -156,7 +154,7 @@ var prompts = [
     mech_weight: 0,
     elec_weight: 0,
     prog_weight: 1,
-	class: 'group11'
+	class: 'group16'
 }
 
 ]
@@ -208,20 +206,6 @@ function createPromptItems() {
 }
 
 // For each possible value, create a button for each to be inserted into each li of the quiz
-// function createValueButtons() {
-	
-// 	for (var li_index = 0; li_index < prompts.length; li_index++) {
-// 		for (var i = 0; i < prompt_values.length; i++) {
-// 			var val_button = document.createElement('button');
-// 			var val_text = document.createTextNode(prompt_values[i].value);
-
-// 			val_button.setAttribute('class', 'value-btn btn ' + prompt_values[i].class);
-// 			val_button.appendChild(val_text);
-
-// 			document.getElementsByClassName('prompt')[li_index].appendChild(val_button);
-// 		}
-// 	}
-// }
 function createValueButtons() {
 	for (var li_index = 0; li_index < prompts.length; li_index++) {
 		var group = document.createElement('div');
@@ -381,44 +365,49 @@ $('#submit-btn').click(function () {
     
     switch (result) {
         case 'mkt':
-            document.getElementById('results').innerHTML = "<b>You are marketing!</b><br><br>\
-		Marketing is 45 \% vsco girl. Don\'t @ me.\
-<br><br>\
-Blah blah blah\
-<br><br>\
-Blah blah blah";
+            document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/marketing.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
+                                                            <br><b>You are marketing!</b><br><br>\
+                                                            Marketing is 45\% vsco girl. Don\'t @ me.\
+                                                            <br><br>\
+                                                            Blah blah blah\
+                                                            <br><br>\
+                                                            Blah blah blah";
             break;
         case 'cad':
-            document.getElementById('results').innerHTML = "<b>You are CAD!</b><br><br>\
-		CAD is such a silly goose! 🤪\
-<br><br>\
-Blah blah blah\
-<br><br>\
-Blah blah blah";
+            document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/cad.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
+                                                            <br><b>You are CAD!</b><br><br>\
+                                                            CAD is such a silly goose! 🤪\
+                                                            <br><br>\
+                                                            Blah blah blah\
+                                                            <br><br>\
+                                                            Blah blah blah";
             break;
         case 'mech':
-            document.getElementById('results').innerHTML = "<b>You are mechanical!</b><br><br>\
-		What I mean is you're a normie.\
-<br><br>\
-Blah blah blah\
-<br><br>\
-Blah blah blah";
+            document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/mechanical.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
+                                                            <br><b>You are mechanical!</b><br><br>\
+                                                            What I mean is you're a normie.\
+                                                            <br><br>\
+                                                            Blah blah blah\
+                                                            <br><br>\
+                                                            Blah blah blah";
             break;
         case 'elec':
-            document.getElementById('results').innerHTML = "<b>You are electrical!</b><br><br>\
-		Electrical is nerdy but normal enough that people forget.\
-<br><br>\
-Blah blah blah\
-<br><br>\
-Blah blah blah";
+            document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/electrical.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
+                                                            <br><b>You are electrical!</b><br><br>\
+                                                            Electrical is nerdy but normal enough that people forget.\
+                                                            <br><br>\
+                                                            Blah blah blah\
+                                                            <br><br>\
+                                                            Blah blah blah";
             break;
         case 'prog':
-            document.getElementById('results').innerHTML = "<b>You are programming!</b><br><br>\
-		You're a loser, is what I'm saying.\
-<br><br>\
-Blah blah blah\
-<br><br>\
-Blah blah blah";
+            document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/programming.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
+                                                            <br><b>You are programming!</b><br><br>\
+                                                            You're a loser, is what I'm saying.\
+                                                            <br><br>\
+                                                            Blah blah blah\
+                                                            <br><br>\
+                                                            Blah blah blah";
             break;
         default:
             document.getElementById('results').innerHTML = "<b>Something went wrong</b><br><br>\
