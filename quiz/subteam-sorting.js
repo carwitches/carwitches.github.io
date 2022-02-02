@@ -1,8 +1,11 @@
+var prompts_per_page = 14;
+var current_page = 1;
+var taken_quiz = false;
+
 // This is an array of objects that stores prompts given to the user and their weights.
 // If agreeing with a given prompt is indicative of a certain subteam, the prompt's weight for that subteam will be positive.
 // If disagreeing with a given prompt is indicative of a certain subteam, the prompt's weight for that subteam will be negative.
 
-// 14 per page
 var prompts = [
 {
 	prompt: 'I like working with my hands.',
@@ -190,10 +193,12 @@ var prompt_values = [
 }
 ]
 
-// For each prompt, create a list item to be inserted in the list group
-function createPromptItems() {
+var num_of_pages = Math.floor((prompts.length - 1) / prompts_per_page) + 1;
 
-	for (var i = 0; i < prompts.length; i++) {
+// For each prompt, create a list item to be inserted in the list group
+function createPromptItems(page) {
+
+	for (var i = prompts_per_page * (page - 1); (i < prompts_per_page * page) && (i < prompts.length); i++) {
 		var prompt_li = document.createElement('li');
 		var prompt_p = document.createElement('p');
 		var prompt_text = document.createTextNode(prompts[i].prompt);
@@ -202,13 +207,13 @@ function createPromptItems() {
 		prompt_p.appendChild(prompt_text);
 		prompt_li.appendChild(prompt_p);
 
-		document.getElementById('quiz').appendChild(prompt_li);
+		document.getElementById('page' + page).appendChild(prompt_li);
 	}
 }
 
 // For each possible value, create a button for each to be inserted into each li of the quiz
-function createValueButtons() {
-	for (var li_index = 0; li_index < prompts.length; li_index++) {
+function createValueButtons(page) {
+	for (var li_index = prompts_per_page * (page - 1); (li_index < prompts_per_page * page) && (li_index < prompts.length); li_index++) {
 		var group = document.createElement('div');
 		group.className = 'btn-group btn-group-justified';
 
@@ -229,8 +234,8 @@ function createValueButtons() {
 	}
 }
 
-createPromptItems();
-createValueButtons();
+createPromptItems(1);
+createValueButtons(1);
 
 // Keep a running score for each subteam. A higher value means the user is more likely to fit into that subteam.
 // Calculation will sum all of the answers to the prompts using weight of the value * the weight of the prompt.
@@ -332,6 +337,28 @@ $('.value-btn').mousedown(function () {
 	//console.log(total);
 })
 
+$('#next-btn').click(function () {
+    $('#page' + current_page).addClass('hide');
+    $('#page' + current_page).removeClass('show');
+    current_page++;
+    
+    $('#page' + current_page).removeClass('hide');
+    $('#page' + current_page).addClass('show');
+
+    if (!taken_quiz) {
+        createPromptItems(current_page);
+        createValueButtons(current_page);
+    }
+    
+    $('#page' + (current_page - 1)).addClass('hide');
+
+    // If this is the last page of the quiz, show the submit button
+    if (current_page == num_of_pages) {
+        $('#next-btn').addClass('hide');
+        $('#submit-btn').removeClass('hide');
+    }
+})
+
 function calculateResult() {
     var result = 'mkt';
     var largest_score = mkt_score;
@@ -417,19 +444,23 @@ $('#submit-btn').click(function () {
             break;
         default:
             document.getElementById('results').innerHTML = "<b>Something went wrong</b><br><br>\
-		                                                  Try again?";
+                                                            Try again?";
     }
+    
+    taken_quiz = true;
 	
 	// Hide the quiz after they submit their results
-	$('#quiz').addClass('hide');
+	$('#page' + current_page).addClass('hide');
+    $('#page' + current_page).removeClass('show');
 	$('#submit-btn').addClass('hide');
 	$('#retake-btn').removeClass('hide');
 })
 
 // Refresh the screen to show a new quiz if they click the retake quiz button
 $('#retake-btn').click(function () {
-	$('#quiz').removeClass('hide');
-	$('#submit-btn').removeClass('hide');
+    current_page = 1;
+	$('#page1').removeClass('hide');
+	$('#next-btn').removeClass('hide');
 	$('#retake-btn').addClass('hide');
 
 	$('.results').addClass('hide');
