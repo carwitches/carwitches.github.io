@@ -1,5 +1,6 @@
 var prompts_per_page = 14;
 var current_page = 1;
+var spicy_page = 3;
 
 // This is an array of objects that stores prompts given to the user and their weights.
 // If agreeing with a given prompt is indicative of a certain subteam, the prompt's weight for that subteam will be positive.
@@ -52,13 +53,76 @@ var prompts = [
 	class: 'group4'
 },
 {
-	prompt: 'My pickup lines tend to be physics-related.',
-    mkt_weight: -2,
-    cad_weight: 2,
+	prompt: 'I enjoy math.',
+    mkt_weight: 0,
+    cad_weight: 1,
     mech_weight: 0,
     elec_weight: 0,
-    prog_weight: 1,
+    prog_weight: 2,
 	class: 'group5'
+},
+{
+	prompt: 'I am interested in working directly with electronics.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 2,
+    prog_weight: 1,
+	class: 'group6'
+},
+{
+	prompt: 'I like getting into the details of how things work.',
+    mkt_weight: 0,
+    cad_weight: 2,
+    mech_weight: 1,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group7'
+},
+{
+	prompt: 'I\'m good with fine motor tasks like sewing.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 1,
+    elec_weight: 2,
+    prog_weight: 0,
+	class: 'group8'
+},
+{
+	prompt: 'I liked building with LEGOs as a kid.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 1,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group9'
+},
+{
+	prompt: 'I\'m a confident person.',
+    mkt_weight: 1,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: -1,
+    prog_weight: -1,
+	class: 'group10'
+},
+{
+	prompt: 'Spatial reasoning is one of my strengths.',
+    mkt_weight: 0,
+    cad_weight: 2,
+    mech_weight: 1,
+    elec_weight: 1,
+    prog_weight: 0,
+	class: 'group11'
+},
+{
+	prompt: 'I\'m physically strong.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 1,
+    elec_weight: 0,
+    prog_weight: -1,
+	class: 'group12'
 },
 {
 	prompt: 'Soup',
@@ -67,82 +131,19 @@ var prompts = [
     mech_weight: 0,
     elec_weight: 0,
     prog_weight: 0,
-	class: 'group6'
-},
-{
-	prompt: 'I am a fan of rubber ducks.',
-    mkt_weight: 0,
-    cad_weight: 0,
-    mech_weight: 0,
-    elec_weight: 0,
-    prog_weight: 2,
-	class: 'group7'
-},
-{
-	prompt: 'I would cuddle with the bros.',
-    mkt_weight: 0,
-    cad_weight: 1,
-    mech_weight: 1,
-    elec_weight: 0,
-    prog_weight: 0,
-	class: 'group8'
-},
-{
-	prompt: 'I have climbed onto the top of a door before.',
-    mkt_weight: 0,
-    cad_weight: 2,
-    mech_weight: 0,
-    elec_weight: 0,
-    prog_weight: 1,
-	class: 'group9'
-},
-{
-	prompt: 'I write love letters on Chipotle napkins.',
-    mkt_weight: 0,
-    cad_weight: 1,
-    mech_weight: 0,
-    elec_weight: 0,
-    prog_weight: 0,
-	class: 'group10'
-},
-{
-	prompt: 'I am likely to go to a rave.',
-    mkt_weight: 0,
-    cad_weight: 0,
-    mech_weight: 1,
-    elec_weight: 2,
-    prog_weight: -1,
-	class: 'group11'
-},
-{
-	prompt: 'I decorate the tools I work with.',
-    mkt_weight: 0,
-    cad_weight: 0,
-    mech_weight: 0,
-    elec_weight: 2,
-    prog_weight: 1,
-	class: 'group12'
-},
-{
-	prompt: 'I am capable of communicating telepathically.',
-    mkt_weight: 0,
-    cad_weight: 1,
-    mech_weight: 0,
-    elec_weight: 0,
-    prog_weight: 0,
 	class: 'group13'
 },
 {
-	prompt: 'I eat onions like they\'re apples.',
-    mkt_weight: -1,
-    cad_weight: 2,
-    mech_weight: 0,
-    elec_weight: 0,
-    prog_weight: 1,
+	prompt: 'Watching metal melt sounds satisfying.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 1,
+    elec_weight: 1,
+    prog_weight: 0,
 	class: 'group14'
 },
 {
-	prompt: 'I am a communist.',
+	prompt: 'When I encounter a problem, I like to think through it step by step.',
     mkt_weight: 0,
     cad_weight: 0,
     mech_weight: 0,
@@ -151,42 +152,325 @@ var prompts = [
 	class: 'group15'
 },
 {
+	prompt: 'I\'m good at managing money.',
+    mkt_weight: 1,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group16'
+},
+{
+	prompt: 'I like working with kids.',
+    mkt_weight: 1,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group17'
+},
+{
+	prompt: 'My pickup lines tend to be physics-related.',
+    mkt_weight: -2,
+    cad_weight: 2,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 1,
+	class: 'group18'
+},
+{
+	prompt: 'I would rather not work in potentially dangerous situations.',
+    mkt_weight: 0,
+    cad_weight: -1,
+    mech_weight: -2,
+    elec_weight: -1,
+    prog_weight: 0,
+	class: 'group19'
+},
+{
+	prompt: 'I am a very careful person.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 2,
+    prog_weight: 0,
+	class: 'group20'
+},
+{
+	prompt: 'I don\'t mind sitting at a computer all day.',
+    mkt_weight: 1,
+    cad_weight: 1,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 1,
+	class: 'group21'
+},
+{
+	prompt: 'I am a communist.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 2,
+	class: 'group22'
+},
+{
+	prompt: 'Working with big machines seems cool.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 2,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group23'
+},
+{
+	prompt: 'I would enjoy being an event coordinator.',
+    mkt_weight: 2,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 1,
+    prog_weight: 0,
+	class: 'group24'
+},
+{
+	prompt: 'I am likely to go to a rave.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 1,
+    elec_weight: 2,
+    prog_weight: -1,
+	class: 'group25'
+},
+{
+	prompt: 'I am good at drawing.',
+    mkt_weight: 1,
+    cad_weight: 1,
+    mech_weight: 0,
+    elec_weight: 2,
+    prog_weight: 0,
+	class: 'group26'
+},
+{
+	prompt: 'Writing technical documents seems boring to me.',
+    mkt_weight: 0,
+    cad_weight: -2,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: -1,
+	class: 'group27'
+},
+{
+	prompt: 'I am a fan of rubber ducks.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 2,
+	class: 'group28'
+},
+{
+	prompt: 'I would cuddle with the bros.',
+    mkt_weight: 0,
+    cad_weight: 1,
+    mech_weight: 1,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group29'
+},
+{
+	prompt: 'I have climbed onto the top of a door before.',
+    mkt_weight: 0,
+    cad_weight: 2,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 1,
+	class: 'group30'
+},
+{
+	prompt: 'I write love letters on Chipotle napkins.',
+    mkt_weight: 0,
+    cad_weight: 1,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group31'
+},
+{
+	prompt: 'I decorate the tools I work with.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 2,
+    prog_weight: 1,
+	class: 'group32'
+},
+{
+	prompt: 'I am capable of communicating telepathically.',
+    mkt_weight: 0,
+    cad_weight: 1,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group33'
+},
+{
+	prompt: 'I eat onions like they\'re apples.',
+    mkt_weight: -1,
+    cad_weight: 2,
+    mech_weight: 0,
+    elec_weight: 0,
+    prog_weight: 1,
+	class: 'group34'
+},
+{
 	prompt: 'I went through an anarchist phase.',
     mkt_weight: 2,
     cad_weight: -1,
     mech_weight: 0,
     elec_weight: 0,
     prog_weight: 1,
-	class: 'group16'
+	class: 'group35'
+},
+{
+	prompt: 'I use Snapchat daily.',
+    mkt_weight: 2,
+    cad_weight: 0,
+    mech_weight: 2,
+    elec_weight: 0,
+    prog_weight: -1,
+	class: 'group36'
+},
+{
+	prompt: 'I have a guniea pig.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 2,
+    prog_weight: 0,
+	class: 'group37'
+},
+{
+	prompt: 'Robotics is a sport.',
+    mkt_weight: 1,
+    cad_weight: 0,
+    mech_weight: -2,
+    elec_weight: 0,
+    prog_weight: 1,
+	class: 'group38'
+},
+{
+	prompt: 'I\'m a weeb.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 1,
+    prog_weight: 2,
+	class: 'group39'
+},
+{
+	prompt: 'My favorite pizza topping is metal shavings.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 2,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group40'
+},
+{
+	prompt: 'I use TikTok.',
+    mkt_weight: 2,
+    cad_weight: 0,
+    mech_weight: 1,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group41'
+},
+{
+	prompt: 'I am a sportsball enjoyer.',
+    mkt_weight: 1,
+    cad_weight: 1,
+    mech_weight: 2,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group42'
+},
+{
+	prompt: 'I love Marvel.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 2,
+    prog_weight: 0,
+	class: 'group43'
+},
+{
+	prompt: 'I have a secret Tumblr blog with like three followers.',
+    mkt_weight: 0,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 2,
+    prog_weight: 0,
+	class: 'group44'
+},
+{
+	prompt: 'I love eating donuts in random parking lots at 2 AM with my best bro.',
+    mkt_weight: 0,
+    cad_weight: 1,
+    mech_weight: 1,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group45'
+},
+{
+	prompt: '😏',
+    mkt_weight: 1,
+    cad_weight: 2,
+    mech_weight: 1,
+    elec_weight: 0,
+    prog_weight: 0,
+	class: 'group46'
+},
+{
+	prompt: 'I\'m a theater kid.',
+    mkt_weight: 1,
+    cad_weight: 0,
+    mech_weight: 0,
+    elec_weight: 2,
+    prog_weight: 0,
+	class: 'group47'
 }
-
 ]
 
 // This array stores all of the possible values and the weight associated with the value. 
 // The stronger agreeance/disagreeance, the higher the weight on the user's answer to the prompt.
 var prompt_values = [
 {
-	value: 'Spicy Ahree', 
+	value: 'Strongly Agree', 
+    spicyValue: 'Spicy Ahree',
 	class: 'btn-default btn-strongly-agree',
 	weight: 2
 },
 {
-	value: 'Ahree',
+	value: 'Agree',
+    spicyValue: 'Ahree',
 	class: 'btn-default btn-agree',
 	weight: 1,
 },
 {
-	value: 'Mehree', 
+	value: 'Neutral', 
+    spicyValue: 'Mehree',
 	class: 'btn-default',
 	weight: 0
 },
 {
-	value: 'Disahree',
+	value: 'Disagree',
+    spicyValue: 'Disahree',
 	class: 'btn-default btn-disagree',
 	weight: -1
 },
 { 
-	value: 'Spicy Disahree',
+	value: 'Strongly Disagree',
+    spicyValue: 'Spicy Disahree',
 	class: 'btn-default btn-strongly-disagree',
 	weight: -2
 }
@@ -221,7 +505,10 @@ function createValueButtons(page) {
 			btn_group.className = 'btn-group';
 
 			var button = document.createElement('button');
-			var button_text = document.createTextNode(prompt_values[i].value);
+            if (page >= spicy_page)
+                var button_text = document.createTextNode(prompt_values[i].spicyValue);
+            else
+                var button_text = document.createTextNode(prompt_values[i].value);
 			button.className = 'group' + li_index + ' value-btn btn ' + prompt_values[i].class;
 			button.appendChild(button_text);
 
@@ -283,7 +570,7 @@ function findValueWeight(values, value) {
 	var weight = 0;
 
 	for (var i = 0; i < values.length; i++) {
-		if (values[i].value === value) {
+		if (values[i].value === value || values[i].spicyValue == value) {
 			weight = values[i].weight;
 		}
 	}
