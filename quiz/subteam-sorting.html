@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Personality Test</title>
+	<title>What subteam are you?</title>
 	<!-- FONTAWESOME -->
 	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<!-- Latest compiled and minified CSS -->
@@ -24,15 +24,21 @@
         <h5>(This is a work in progress.) Would you like to know which subteam suits you best? Take this quiz to be sorted into one of the five subteams!</h5>
 	</div>
 	<div class="container text-center">
-		<ul id="quiz" class="list-group">
+		<ul id="page1" class="list-group">
 
 		</ul>
+        <ul id="page2" class="list-group hide">
+        
+        </ul>
+        <ul id="page3" class="list-group hide">
+        
+        </ul>
+        <ul id="page4" class="list-group hide">
+        
+        </ul>
 	</div>
 
 	<div class="container text-center hide results">
-		<img src="https://raw.githubusercontent.com/danubevictoria/quiz/master/images/results1.jpg" class="results col-md-4 col-sm-4 col-xs-4">
-		<img src="https://raw.githubusercontent.com/danubevictoria/quiz/master/images/results2.jpg" class="results col-md-4 col-sm-4 col-xs-4">
-		<img src="https://raw.githubusercontent.com/danubevictoria/quiz/master/images/results3.jpg" class="results col-md-4 col-sm-4 col-xs-4">
 	</div>
 
 	<!-- <div class="container progress">
@@ -49,7 +55,9 @@
 	</div>
 
 	<div class="container text-center bottom">
-		<button id="submit-btn" class="btn btn-primary btn-lg">Submit</button>
+		<button id="next-btn" class="btn btn-primary btn-lg">Next</button>
+        
+        <button id="submit-btn" class="hide btn btn-primary btn-lg">Submit</button>
 
 		<button id="retake-btn" class="hide btn btn-primary btn-lg">Retake Quiz</button>
 	</div>
