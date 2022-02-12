@@ -1,6 +1,5 @@
 var prompts_per_page = 14;
 var current_page = 1;
-var taken_quiz = false;
 
 // This is an array of objects that stores prompts given to the user and their weights.
 // If agreeing with a given prompt is indicative of a certain subteam, the prompt's weight for that subteam will be positive.
@@ -234,8 +233,11 @@ function createValueButtons(page) {
 	}
 }
 
-createPromptItems(1);
-createValueButtons(1);
+for (var i = 1; i <= num_of_pages; i++) {
+    createPromptItems(i);
+    createValueButtons(i);
+}
+
 
 // Keep a running score for each subteam. A higher value means the user is more likely to fit into that subteam.
 // Calculation will sum all of the answers to the prompts using weight of the value * the weight of the prompt.
@@ -309,32 +311,33 @@ function subtractValues(prompts, group, values, value) {
 
 // When user clicks a value to agree/disagree with the prompt, display to the user what they selected
 $('.value-btn').mousedown(function () {
-	var classList = $(this).attr('class');
-	// console.log(classList);
-	var classArr = classList.split(" ");
-	// console.log(classArr);
-	var this_group = classArr[0];
-	// console.log(this_group);
+    console.log("????");
+    var classList = $(this).attr('class');
+    // console.log(classList);
+    var classArr = classList.split(" ");
+    // console.log(classArr);
+    var this_group = classArr[0];
+    // console.log(this_group);
 
-	// If button is already selected, de-select it when clicked and subtract any previously added values to the total
-	// Otherwise, de-select any selected buttons in group and select the one just clicked
-	// And subtract deselected weighted value and add the newly selected weighted value to the total
-	if($(this).hasClass('active')) {
-		$(this).removeClass('active');
+    // If button is already selected, de-select it when clicked and subtract any previously added values to the total
+    // Otherwise, de-select any selected buttons in group and select the one just clicked
+    // And subtract deselected weighted value and add the newly selected weighted value to the total
+    if($(this).hasClass('active')) {
+        $(this).removeClass('active');
         subtractValues(prompts, this_group, prompt_values, $(this).text());
-	} else {
-		// $('[class='thisgroup).prop('checked', false);
+    } else {
+        // $('[class='thisgroup).prop('checked', false);
         subtractValues(prompts, this_group, prompt_values, $('.'+this_group+'.active').text());
-		// console.log($('.'+this_group+'.active').text());
-		$('.'+this_group).removeClass('active');
+        // console.log($('.'+this_group+'.active').text());
+        $('.'+this_group).removeClass('active');
 
-		// console.log('group' + findValueWeight(prompt_values, $('.'+this_group).text()));
-		// $(this).prop('checked', true);
-		$(this).addClass('active');
+        // console.log('group' + findValueWeight(prompt_values, $('.'+this_group).text()));
+        // $(this).prop('checked', true);
+        $(this).addClass('active');
         addValues(prompts, this_group, prompt_values, $(this).text());
-	}
+    }
 
-	//console.log(total);
+    //console.log(total);
 })
 
 $('#next-btn').click(function () {
@@ -344,13 +347,6 @@ $('#next-btn').click(function () {
     
     $('#page' + current_page).removeClass('hide');
     $('#page' + current_page).addClass('show');
-
-    if (!taken_quiz) {
-        createPromptItems(current_page);
-        createValueButtons(current_page);
-    }
-    
-    $('#page' + (current_page - 1)).addClass('hide');
 
     // If this is the last page of the quiz, show the submit button
     if (current_page == num_of_pages) {
@@ -446,8 +442,6 @@ $('#submit-btn').click(function () {
             document.getElementById('results').innerHTML = "<b>Something went wrong</b><br><br>\
                                                             Try again?";
     }
-    
-    taken_quiz = true;
 	
 	// Hide the quiz after they submit their results
 	$('#page' + current_page).addClass('hide');
