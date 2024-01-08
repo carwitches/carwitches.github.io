@@ -5,9 +5,9 @@ const delay = 50;
 // duck trail id prefix
 const duckTrailID = "_ducktrail";
 // unsquished duck cursor location
-const duckLoc = "assets/duckcursor.png";
+const duckLoc = "/assets/duckcursor.png";
 // squished duck cursor location
-const duckSquishLoc = "assets/duckcursorsquish.png";
+const duckSquishLoc = "/assets/duckcursorsquish.png";
 
 /**
  * Set coords of duck
