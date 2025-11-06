@@ -439,7 +439,7 @@ var prompts = [
     prog_weight: 0,
 	class: 'group47'
 }
-]
+];
 
 // This array stores all of the possible values and the weight associated with the value. 
 // The stronger agreeance/disagreeance, the higher the weight on the user's answer to the prompt.
@@ -474,7 +474,7 @@ var prompt_values = [
 	class: 'btn-default btn-strongly-disagree',
 	weight: -2
 }
-]
+];
 
 var num_of_pages = Math.floor((prompts.length - 1) / prompts_per_page) + 1;
 
@@ -505,10 +505,7 @@ function createValueButtons(page) {
 			btn_group.className = 'btn-group';
 
 			var button = document.createElement('button');
-            if (page >= spicy_page)
-                var button_text = document.createTextNode(prompt_values[i].spicyValue);
-            else
-                var button_text = document.createTextNode(prompt_values[i].value);
+			var button_text = document.createTextNode((page >= spicy_page) ? prompt_values[i].spicyValue : prompt_values[i].value);
 			button.className = 'group' + li_index + ' value-btn btn ' + prompt_values[i].class;
 			button.appendChild(button_text);
 
@@ -625,7 +622,7 @@ $('.value-btn').mousedown(function () {
     }
 
     //console.log(total);
-})
+});
 
 $('#next-btn').click(function () {
     $('#page' + current_page).addClass('hide');
@@ -640,7 +637,7 @@ $('#next-btn').click(function () {
         $('#next-btn').addClass('hide');
         $('#submit-btn').removeClass('hide');
     }
-})
+});
 
 function calculateResult() {
     var result = 'mkt';
@@ -678,11 +675,11 @@ $('#submit-btn').click(function () {
         case 'mkt':
             document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/marketing.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
                                                             <br><b>You are marketing!</b><br><br>\
-                                                            Marketing is 45\% vsco girl. Don\'t @ me.\
+                                                            Marketing is a labubu girl.\
                                                             <br><br>\
                                                             People on marketing are generally creative, detail-oriented, and good at public speaking.\
                                                             <br><br>\
-                                                            Marketing is the MOM of the friend group and holds everything together. She's popular and has a strong social \
+                                                            Marketing (the personification) is the MOM of the friend group and holds everything together. She's popular and has a strong social \
                                                             media presence, but is lacking in close, genuine connections.";
             break;
         case 'cad':
@@ -692,17 +689,17 @@ $('#submit-btn').click(function () {
                                                             <br><br>\
                                                             People on CAD are generally laid back, creative, and great with math and physics.\
                                                             <br><br>\
-                                                            CAD is a know-it-all who always answers questions in class, but he's not uptight by any means; he's probably \
-                                                            the goofiest person you'll ever meet, and he always seems to have an injury from his last stunt.";
+                                                            CAD (the personification) is a know-it-all who always answers questions in class, but he's not uptight by any means; he's probably \
+                                                            the goofiest person you'll ever meet, and he always seems to have an injury from his latest stunt.";
             break;
         case 'mech':
             document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/mechanical.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
                                                             <br><b>You are mechanical!</b><br><br>\
-                                                            What I mean is you're a normie.\
+                                                            Basically you're a normie.\
                                                             <br><br>\
                                                             People on mechanical are generally hands-on, innovative, and willing to get their hands dirty.\
                                                             <br><br>\
-                                                            Mechanical is super friendly and easy to talk to. He'll often show up late and leave his workspace a mess, \
+                                                            Mechanical (the personification) is super friendly and easy to talk to. He'll often show up late and leave his workspace a mess, \
                                                             but he's also one of the people who stays the latest at the shop.";
             break;
         case 'elec':
@@ -712,17 +709,17 @@ $('#submit-btn').click(function () {
                                                             <br><br>\
                                                             People on electrical are generally focused, flexible, and good at working with their hands.\
                                                             <br><br>\
-                                                            Electrical is mature and put-together, but on the inside she is, at times, rather disorganized. She can be shy and \
+                                                            Electrical (the personification) is mature and put-together, but on the inside she is, at times, rather disorganized. She can be shy and \
                                                             insecure, but her natural leadership qualities make up for this.";
             break;
         case 'prog':
             document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/programming.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
                                                             <br><b>You are programming!</b><br><br>\
-                                                            You're a loser, is what I'm saying.\
+                                                            We like programming. Programming is fun. We like programming. Programming is fun. We like\
                                                             <br><br>\
                                                             People on programming are generally meticulous, open-minded, and great at problem solving.\
                                                             <br><br>\
-                                                            Programming is extremely reserved and socially awkward, but once you get to know him, he's loud and wacky. \
+                                                            Programming (the personification) is extremely reserved and socially awkward, but once you get to know him, he's loud and wacky. \
                                                             He's also incredibly smart, having been a techie from a young age.";
             break;
         default:
@@ -735,7 +732,7 @@ $('#submit-btn').click(function () {
     $('#page' + current_page).removeClass('show');
 	$('#submit-btn').addClass('hide');
 	$('#retake-btn').removeClass('hide');
-})
+});
 
 // Refresh the screen to show a new quiz if they click the retake quiz button
 $('#retake-btn').click(function () {
@@ -746,4 +743,4 @@ $('#retake-btn').click(function () {
 
 	$('.results').addClass('hide');
 	$('.results').removeClass('show');
-})
+});
