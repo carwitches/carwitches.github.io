@@ -675,11 +675,11 @@ $('#submit-btn').click(function () {
         case 'mkt':
             document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/marketing.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
                                                             <br><b>You are marketing!</b><br><br>\
-                                                            Marketing is 45\% vsco girl. Don\'t @ me.\
+                                                            Marketing is a labubu girl.\
                                                             <br><br>\
                                                             People on marketing are generally creative, detail-oriented, and good at public speaking.\
                                                             <br><br>\
-                                                            Marketing is the MOM of the friend group and holds everything together. She's popular and has a strong social \
+                                                            Marketing (the personification) is the MOM of the friend group and holds everything together. She's popular and has a strong social \
                                                             media presence, but is lacking in close, genuine connections.";
             break;
         case 'cad':
@@ -689,17 +689,17 @@ $('#submit-btn').click(function () {
                                                             <br><br>\
                                                             People on CAD are generally laid back, creative, and great with math and physics.\
                                                             <br><br>\
-                                                            CAD is a know-it-all who always answers questions in class, but he's not uptight by any means; he's probably \
-                                                            the goofiest person you'll ever meet, and he always seems to have an injury from his last stunt.";
+                                                            CAD (the personification) is a know-it-all who always answers questions in class, but he's not uptight by any means; he's probably \
+                                                            the goofiest person you'll ever meet, and he always seems to have an injury from his latest stunt.";
             break;
         case 'mech':
             document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/mechanical.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
                                                             <br><b>You are mechanical!</b><br><br>\
-                                                            What I mean is you're a normie.\
+                                                            Basically you're a normie.\
                                                             <br><br>\
                                                             People on mechanical are generally hands-on, innovative, and willing to get their hands dirty.\
                                                             <br><br>\
-                                                            Mechanical is super friendly and easy to talk to. He'll often show up late and leave his workspace a mess, \
+                                                            Mechanical (the personification) is super friendly and easy to talk to. He'll often show up late and leave his workspace a mess, \
                                                             but he's also one of the people who stays the latest at the shop.";
             break;
         case 'elec':
@@ -709,17 +709,17 @@ $('#submit-btn').click(function () {
                                                             <br><br>\
                                                             People on electrical are generally focused, flexible, and good at working with their hands.\
                                                             <br><br>\
-                                                            Electrical is mature and put-together, but on the inside she is, at times, rather disorganized. She can be shy and \
+                                                            Electrical (the personification) is mature and put-together, but on the inside she is, at times, rather disorganized. She can be shy and \
                                                             insecure, but her natural leadership qualities make up for this.";
             break;
         case 'prog':
             document.getElementById('results').innerHTML = "<p style=\"text-align:center\"><img src=\"../assets/programming.jpg\" height=\"200\"></p><h5>Art by Caitlyn!</h5>\
                                                             <br><b>You are programming!</b><br><br>\
-                                                            You're a loser, is what I'm saying.\
+                                                            We like programming. Programming is fun. We like programming. Programming is fun. We like\
                                                             <br><br>\
                                                             People on programming are generally meticulous, open-minded, and great at problem solving.\
                                                             <br><br>\
-                                                            Programming is extremely reserved and socially awkward, but once you get to know him, he's loud and wacky. \
+                                                            Programming (the personification) is extremely reserved and socially awkward, but once you get to know him, he's loud and wacky. \
                                                             He's also incredibly smart, having been a techie from a young age.";
             break;
         default:
