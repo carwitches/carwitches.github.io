@@ -439,7 +439,7 @@ var prompts = [
     prog_weight: 0,
 	class: 'group47'
 }
-]
+];
 
 // This array stores all of the possible values and the weight associated with the value. 
 // The stronger agreeance/disagreeance, the higher the weight on the user's answer to the prompt.
@@ -474,7 +474,7 @@ var prompt_values = [
 	class: 'btn-default btn-strongly-disagree',
 	weight: -2
 }
-]
+];
 
 var num_of_pages = Math.floor((prompts.length - 1) / prompts_per_page) + 1;
 
@@ -505,10 +505,7 @@ function createValueButtons(page) {
 			btn_group.className = 'btn-group';
 
 			var button = document.createElement('button');
-            if (page >= spicy_page)
-                var button_text = document.createTextNode(prompt_values[i].spicyValue);
-            else
-                var button_text = document.createTextNode(prompt_values[i].value);
+			var button_text = document.createTextNode((page >= spicy_page) ? prompt_values[i].spicyValue : prompt_values[i].value);
 			button.className = 'group' + li_index + ' value-btn btn ' + prompt_values[i].class;
 			button.appendChild(button_text);
 
@@ -625,7 +622,7 @@ $('.value-btn').mousedown(function () {
     }
 
     //console.log(total);
-})
+});
 
 $('#next-btn').click(function () {
     $('#page' + current_page).addClass('hide');
@@ -640,7 +637,7 @@ $('#next-btn').click(function () {
         $('#next-btn').addClass('hide');
         $('#submit-btn').removeClass('hide');
     }
-})
+});
 
 function calculateResult() {
     var result = 'mkt';
@@ -735,7 +732,7 @@ $('#submit-btn').click(function () {
     $('#page' + current_page).removeClass('show');
 	$('#submit-btn').addClass('hide');
 	$('#retake-btn').removeClass('hide');
-})
+});
 
 // Refresh the screen to show a new quiz if they click the retake quiz button
 $('#retake-btn').click(function () {
@@ -746,4 +743,4 @@ $('#retake-btn').click(function () {
 
 	$('.results').addClass('hide');
 	$('.results').removeClass('show');
-})
+});
