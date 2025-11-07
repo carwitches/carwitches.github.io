@@ -631,6 +631,8 @@ $('#next-btn').click(function () {
     
     $('#page' + current_page).removeClass('hide');
     $('#page' + current_page).addClass('show');
+	
+	window.scrollTo(0, 0);
 
     // If this is the last page of the quiz, show the submit button
     if (current_page == num_of_pages) {
@@ -732,6 +734,8 @@ $('#submit-btn').click(function () {
     $('#page' + current_page).removeClass('show');
 	$('#submit-btn').addClass('hide');
 	$('#retake-btn').removeClass('hide');
+	
+	window.scrollTo(0, 0);
 });
 
 // Refresh the screen to show a new quiz if they click the retake quiz button
@@ -743,4 +747,6 @@ $('#retake-btn').click(function () {
 
 	$('.results').addClass('hide');
 	$('.results').removeClass('show');
+	
+	window.scrollTo(0, 0);
 });
